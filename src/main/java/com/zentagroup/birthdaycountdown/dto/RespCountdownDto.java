@@ -26,4 +26,20 @@ public class RespCountdownDto <T> {
     public void setCountdownResult(T countdownResult) {
         this.countdownResult = countdownResult;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAgeText() {
+        return ageText;
+    }
+
+    public T getCountdownResult() {
+        return countdownResult;
+    }
 }
