@@ -33,8 +33,9 @@ public class PoemImp {
     /**
      * Gets a list of Poem objects from an external API using restTemplate.
      * @return List<Poem> list of Poems
+     * @throws CouldNotGetPoemsException if an error occurs getting a response form the poemist api
      */
-    public List<Poem> getPoems() throws Exception{
+    public List<Poem> getPoems() throws CouldNotGetPoemsException{
         final String uri = POEMIST_URL + "randompoems";
         String response;
         try{

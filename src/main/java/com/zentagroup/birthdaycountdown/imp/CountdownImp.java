@@ -21,29 +21,25 @@ public class CountdownImp {
     private PoemImp poemImp;
 
     /**
-     *
+     * Returns an object with the name, age in years, age in text
+     * including months and days, and days until birthday or a random poem if
+     * the birthday is the same date as the current date.
      * @param names
      * @param lastnames
-     * @param birthDate
-     * @return
+     * @param birthDate date of birth
+     * @return RespCountdownDto<Object>
      * @throws Exception
      */
     public RespCountdownDto<Object> getBirthdayCountdown(String names, String lastnames, LocalDate birthDate) throws Exception{
         RespCountdownDto<Object> resp = new RespCountdownDto();
-        try{
-            resp.setAge((int)dateU.getYearsBetweenDates(birthDate, LocalDate.now()));
-            resp.setName(this.getFirstWord(names) + ' ' + this.getFirstWord(lastnames));
-            resp.setAgeText(dateU.getAgeText(birthDate, LocalDate.now()));
-            int days = dateU.getDaysUntilBirthday(birthDate);
-            if (days == 0) {
-                resp.setCountdownResult(poemImp.getRandomPoem(poemImp.getPoems()));
-            } else {
-                resp.setCountdownResult(days);
-            }
-        }catch(InvalidBirthDateException ex){
-            throw new InvalidBirthDateException(ex.getMessage());
-        } catch (Exception ex){
-            throw new Exception(ex.getMessage());
+        resp.setAge((int)dateU.getYearsBetweenDates(birthDate, LocalDate.now()));
+        resp.setName(this.getFirstWord(names) + ' ' + this.getFirstWord(lastnames));
+        resp.setAgeText(dateU.getAgeText(birthDate, LocalDate.now()));
+        int days = dateU.getDaysUntilBirthday(birthDate);
+        if (days == 0) {
+            resp.setCountdownResult(poemImp.getRandomPoem(poemImp.getPoems()));
+        } else {
+            resp.setCountdownResult(days);
         }
         return resp;
     }
