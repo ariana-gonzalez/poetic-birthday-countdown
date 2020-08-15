@@ -6,37 +6,21 @@ package com.zentagroup.birthdaycountdown.dto;
  */
 
 public class RespCountdownDto <T> {
-    String name;
-    int age;
-    String ageText;
-    T countdownResult;
-
-    public String getAgeText() {
-        return ageText;
-    }
-
-    public void setAgeText(String ageText) {
-        this.ageText = ageText;
-    }
-
-    public String getName() {
-        return name;
-    }
+    private String name;
+    private int age;
+    private String ageText;
+    private T countdownResult;
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    public T getCountdownResult() {
-        return countdownResult;
+    public void setAgeText(String ageText) {
+        this.ageText = ageText;
     }
 
     public void setCountdownResult(T countdownResult) {

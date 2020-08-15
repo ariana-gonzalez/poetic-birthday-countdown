@@ -17,28 +17,4 @@ public class ReqCountdownDto {
         this.lastnames = lastnames;
         this.birthdate = birthdate;
     }
-
-    public String getNames() {
-        return this.names;
-    }
-
-    public void setNames(String names) {
-        this.names = names;
-    }
-
-    public String getLastnames() {
-        return this.lastnames;
-    }
-
-    public void setLastnames(String lastnames) {
-        this.lastnames = lastnames;
-    }
-
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
 }
