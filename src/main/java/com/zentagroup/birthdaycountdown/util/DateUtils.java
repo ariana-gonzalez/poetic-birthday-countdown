@@ -3,6 +3,8 @@ package com.zentagroup.birthdaycountdown.util;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Ariana González
@@ -69,7 +71,7 @@ public class DateUtils {
      * Checks whether a year is a leap year. Returns true
      * if it is a leap year, otherwise it returns false.
      * @param year int year to be checked
-     * @return boolean
+     * @return boolean true if is leap year
      */
     public boolean isLeapYear(int year){
         if(year % 4 == 0){
@@ -90,23 +92,10 @@ public class DateUtils {
      * @param year int corresponding to the months year
      * @return int number of days in the month
      */
-    public int getDaysInMonth(int monthValue, int year){
-        switch (monthValue){
-            case 2:
-                return isLeapYear(year)? 29 : 28;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                return 30;
-            default:
-                return 31;
-        }
-    }
-
-    public int getDaysInMonth2(int monthValue, int year){
+    public int getDaysInMonth (int monthValue, int year){
+        List months30days = Arrays.asList(4, 6, 9, 11);
         if(monthValue == 2) return isLeapYear(year)? 29 : 28;
-        if(monthValue == 4 || monthValue == 6 || monthValue == 9 || monthValue == 11) return 30;
+        if(months30days.contains(monthValue)) return 30;
         return 31;
     }
 
@@ -121,29 +110,13 @@ public class DateUtils {
     }
 
     /**
-     *
-
-        public String getYearMonthDayBetweenDates(LocalDate earliestDate, LocalDate latestDate) throws Exception{
-            if(earliestDate.isAfter(latestDate)) throw new Exception();
-            if(earliestDate.getYear() < latestDate.getYear())
-                return (latestDate.getYear() - earliestDate.getYear()) + " años";
-            if(earliestDate.getMonthValue() < latestDate.getMonthValue())
-                return latestDate.getMonthValue() - earliestDate.getMonthValue() + " meses";
-            if(earliestDate.getDayOfMonth() < latestDate.getDayOfMonth())
-                return latestDate.getDayOfMonth() - earliestDate.getDayOfMonth() + " días";
-            return "cumpleaños";
-        }
-     *
-     */
-
-    /**
      * Returns a String with the years, months and days between two given dates
      * @param earliestDate LocalDate
      * @param latestDate LocalDate
      * @return String written time between dates
      */
     public String getAgeText(LocalDate earliestDate, LocalDate latestDate){
-        int years = 0;
+        int years;
         int months = 0;
         int days = 0;
         years = latestDate.getYear() - earliestDate.getYear();
@@ -154,12 +127,12 @@ public class DateUtils {
         if(earliestDate.getMonthValue() < latestDate.getMonthValue()){
             months = latestDate.getMonthValue() - earliestDate.getMonthValue();
         }
-        if(earliestDate.getDayOfMonth() -1 > latestDate.getDayOfMonth()){
+        if(earliestDate.getDayOfMonth() > latestDate.getDayOfMonth()){
             if(months != 0) months --;
             days = getDaysInMonth(latestDate.getMonthValue(), latestDate.getYear()) - (earliestDate.getDayOfMonth() - latestDate.getDayOfMonth());
         }
         if(earliestDate.getDayOfMonth() < latestDate.getDayOfMonth()) {
-            days = latestDate.getDayOfMonth() - earliestDate.getDayOfMonth() +1;
+            days = latestDate.getDayOfMonth() - earliestDate.getDayOfMonth();
         }
         return years + " años " + months + " meses " + days + " días";
     }
