@@ -25,22 +25,27 @@ public class CountdownController {
     @Autowired
     private CountdownImp countdownImp;
 
+    /**
+     * Get method that receives names, lastnames and a date of birth checks the values are
+     * valid and returns a ResponseEntity with the first name and lastname, age and days
+     * until birthday or a poem if it's the persons birthday. If an error occurs it handles
+     * the exception and returns the error message and a suitable error HttpStatus.
+     * @param names name or names
+     * @param lastnames lastname or lastnames
+     * @param birthDate LocalDate must be previous to the current date to be valid
+     * @return ResponseEntity<Object>
+     */
     @GetMapping("/countdown")
     public ResponseEntity<Object> getBirthdayCountdown(@RequestParam String names,
                                                        @RequestParam String lastnames,
-                                                       @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        ResponseEntity<Object> rs = null;
+                                                       @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthDate) {
         try {
-            this.checkRequestValidity(names, lastnames, date);
-            rs = new ResponseEntity<Object>(countdownImp.getBirthdayCountdown(names, lastnames, date), HttpStatus.OK) ;
-        }catch (InvalidBirthDateException | NullPointerException ex) {
-            ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+            this.checkRequestValidity(names, lastnames, birthDate);
+            return new ResponseEntity<Object>(countdownImp.getBirthdayCountdown(names, lastnames, birthDate), HttpStatus.OK);
         } catch (Exception ex){
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            return handleException(ex);
         }
-        return  rs;
     }
 
 
@@ -52,7 +57,7 @@ public class CountdownController {
      * @param date date of birth
      * @throws Exception
      */
-    public void checkRequestValidity(String names, String lastnames, LocalDate date) throws Exception{
+    private void checkRequestValidity(String names, String lastnames, LocalDate date) throws Exception{
         if(StringUtils.isBlank(names) || StringUtils.isBlank(lastnames)){
             throw new NullPointerException(ERROR_INVALID_DATA);
         }
@@ -66,9 +71,33 @@ public class CountdownController {
      * @param birthDate date of birth
      * @throws InvalidBirthDateException when the date of birth is future
      */
-    public void checkBirthDateValidity(LocalDate birthDate) throws InvalidBirthDateException {
+    private void checkBirthDateValidity(LocalDate birthDate) throws InvalidBirthDateException {
         LocalDate today = LocalDate.now();
         if(birthDate.isAfter(today))
             throw new InvalidBirthDateException(ERROR_INVALID_DATA);
+    }
+
+    /**
+     * Handles a given exception and returns a ResponseEntity with
+     * a message and status suitable for the specific error.
+     * @param ex exception to handle
+     * @return
+     */
+    private ResponseEntity<Object> handleException(Exception ex){
+        /**
+         * try {
+         *    throw ex;
+         * }catch (InvalidBirthDateException | NullPointerException exc) {
+         *    return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+         * } catch (Exception exc){
+         *    return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+         * }
+         *
+         */
+        if(ex instanceof InvalidBirthDateException | ex instanceof NullPointerException){
+            return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+        }
+        return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+
     }
 }
