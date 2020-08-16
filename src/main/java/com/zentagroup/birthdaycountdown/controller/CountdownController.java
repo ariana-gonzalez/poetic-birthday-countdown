@@ -1,6 +1,7 @@
 package com.zentagroup.birthdaycountdown.controller;
 
 import com.zentagroup.birthdaycountdown.exception.InvalidBirthDateException;
+import com.zentagroup.birthdaycountdown.exception.InvalidDateException;
 import com.zentagroup.birthdaycountdown.imp.CountdownImp;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +95,7 @@ public class CountdownController {
          * }
          *
          */
-        if(ex instanceof InvalidBirthDateException | ex instanceof NullPointerException){
+        if(ex instanceof InvalidDateException | ex instanceof NullPointerException){
             return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
         }
         return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

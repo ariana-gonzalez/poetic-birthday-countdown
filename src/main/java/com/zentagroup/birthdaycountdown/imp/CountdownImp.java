@@ -35,7 +35,7 @@ public class CountdownImp {
         resp.setAge((int)dateU.getYearsBetweenDates(birthDate, LocalDate.now()));
         resp.setName(this.getFirstWord(names) + ' ' + this.getFirstWord(lastnames));
         resp.setAgeText(dateU.getAgeText(birthDate, LocalDate.now()));
-        int days = dateU.getDaysUntilBirthday(birthDate);
+        int days = dateU.getDaysUntilNextMatchingDate(birthDate, LocalDate.now());
         if (days == 0) {
             resp.setCountdownResult(poemImp.getRandomPoem(poemImp.getPoems()));
         } else {

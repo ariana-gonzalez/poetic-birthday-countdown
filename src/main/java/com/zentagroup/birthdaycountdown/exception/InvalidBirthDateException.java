@@ -5,7 +5,7 @@ package com.zentagroup.birthdaycountdown.exception;
  * ariana.sgm5@gmail.com
  */
 
-public class InvalidBirthDateException extends Exception{
+public class InvalidBirthDateException extends InvalidDateException{
     public InvalidBirthDateException(String message){
         super(message);
     }
