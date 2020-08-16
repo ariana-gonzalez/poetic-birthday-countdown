@@ -14,7 +14,7 @@ Apache Maven 3.6.3
 IntelliJ IDEA
 
 ## Version:
-Last version available in branch develop
+Last version available in branch master
 
 ## Documentation:
 Access the Swagger UI in the following link: [http://localhost:8080/swagger-ui.html#/](http://localhost:8080/swagger-ui.html#/)
