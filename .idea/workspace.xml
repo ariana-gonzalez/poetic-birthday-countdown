@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e0d8d8a6-6be8-49d0-b3b7-bf312d271953" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zentagroup/birthdaycountdown/controller/CountdownController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zentagroup/birthdaycountdown/controller/CountdownController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zentagroup/birthdaycountdown/controller/CountdownControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zentagroup/birthdaycountdown/controller/CountdownControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zentagroup/birthdaycountdown/imp/CountdownImpTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zentagroup/birthdaycountdown/imp/CountdownImpTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zentagroup/birthdaycountdown/imp/PoemImpTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,7 @@
       <recent name="com.zentagroup.birthdaycountdown" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BirthdayCountdownApplication">
+  <component name="RunManager" selected="JUnit.CountdownControllerTest.testCheckBirthDateValidity">
     <configuration name="BirthdayCountdownApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.BirthdayCountdownApplication" />
       <module name="birthday-countdown" />
@@ -53,54 +57,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CountdownImpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CountdownControllerTest.testCheckBirthDateValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="birthday-countdown" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zentagroup.birthdaycountdown.imp.*" />
+          <option name="PATTERN" value="com.zentagroup.birthdaycountdown.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.imp" />
-      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.imp.CountdownImpTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CountdownImpTest.testGetBirthdayCountdown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="birthday-countdown" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zentagroup.birthdaycountdown.imp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.imp" />
-      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.imp.CountdownImpTest" />
-      <option name="METHOD_NAME" value="testGetBirthdayCountdown" />
+      <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.controller.CountdownControllerTest" />
+      <option name="METHOD_NAME" value="testCheckBirthDateValidity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CountdownImpTest.testGetBirthdayCountdownForDates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CountdownControllerTest.testCheckRequestValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="birthday-countdown" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zentagroup.birthdaycountdown.imp.*" />
+          <option name="PATTERN" value="com.zentagroup.birthdaycountdown.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.imp" />
-      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.imp.CountdownImpTest" />
-      <option name="METHOD_NAME" value="testGetBirthdayCountdownForDates" />
+      <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.controller.CountdownControllerTest" />
+      <option name="METHOD_NAME" value="testCheckRequestValidity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CountdownImpTest.testGetFirstWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PoemImpTest.testGetPoems" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="birthday-countdown" />
       <extension name="coverage">
         <pattern>
@@ -109,8 +98,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.imp" />
-      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.imp.CountdownImpTest" />
-      <option name="METHOD_NAME" value="testGetFirstWord" />
+      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.imp.PoemImpTest" />
+      <option name="METHOD_NAME" value="testGetPoems" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PoemImpTest.testGetRandomPoem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="birthday-countdown" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zentagroup.birthdaycountdown.imp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zentagroup.birthdaycountdown.imp" />
+      <option name="MAIN_CLASS_NAME" value="com.zentagroup.birthdaycountdown.imp.PoemImpTest" />
+      <option name="METHOD_NAME" value="testGetRandomPoem" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CountdownControllerTest.testCheckBirthDateValidity" />
+        <item itemvalue="JUnit.CountdownControllerTest.testCheckRequestValidity" />
+        <item itemvalue="JUnit.PoemImpTest.testGetRandomPoem" />
+        <item itemvalue="JUnit.PoemImpTest.testGetPoems" />
         <item itemvalue="Application.BirthdayCountdownApplication" />
-        <item itemvalue="JUnit.CountdownImpTest" />
-        <item itemvalue="JUnit.CountdownImpTest.testGetBirthdayCountdown" />
-        <item itemvalue="JUnit.CountdownImpTest.testGetBirthdayCountdownForDates" />
-        <item itemvalue="JUnit.CountdownImpTest.testGetFirstWord" />
       </list>
     </recent_temporary>
   </component>
@@ -164,10 +169,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="100" y="127" width="1720" height="853" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1597595454720" />
-    <state x="768" y="240" width="538" height="633" key="#com.intellij.ide.util.MemberChooser" timestamp="1597606155254">
+    <state x="768" y="240" width="538" height="633" key="#com.intellij.ide.util.MemberChooser" timestamp="1597609866106">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="768" y="240" width="538" height="633" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1597606155254" />
+    <state x="768" y="240" width="538" height="633" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1597609866106" />
     <state x="321" y="480" width="1277" height="153" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1597455521925">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -192,22 +197,22 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="499" y="143" width="912" height="827" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1597589021754" />
-    <state width="1874" height="280" key="GridCell.Tab.0.bottom" timestamp="1597607691354">
+    <state width="1874" height="247" key="GridCell.Tab.0.bottom" timestamp="1597610268194">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="280" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1597607691354" />
-    <state width="1874" height="280" key="GridCell.Tab.0.center" timestamp="1597607691354">
+    <state width="1874" height="247" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1597610268194" />
+    <state width="1874" height="247" key="GridCell.Tab.0.center" timestamp="1597610268193">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="280" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1597607691354" />
-    <state width="1874" height="280" key="GridCell.Tab.0.left" timestamp="1597607691353">
+    <state width="1874" height="247" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1597610268193" />
+    <state width="1874" height="247" key="GridCell.Tab.0.left" timestamp="1597610268193">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="280" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1597607691353" />
-    <state width="1874" height="280" key="GridCell.Tab.0.right" timestamp="1597607691354">
+    <state width="1874" height="247" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1597610268193" />
+    <state width="1874" height="247" key="GridCell.Tab.0.right" timestamp="1597610268194">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="280" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1597607691354" />
+    <state width="1874" height="247" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1597610268194" />
     <state width="1874" height="175" key="GridCell.Tab.1.bottom" timestamp="1597599844659">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

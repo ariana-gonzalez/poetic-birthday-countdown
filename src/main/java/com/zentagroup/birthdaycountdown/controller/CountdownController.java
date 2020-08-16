@@ -58,7 +58,7 @@ public class CountdownController {
      * @param date date of birth
      * @throws Exception
      */
-    private void checkRequestValidity(String names, String lastnames, LocalDate date) throws Exception{
+    public void checkRequestValidity(String names, String lastnames, LocalDate date) throws Exception{
         if(StringUtils.isBlank(names) || StringUtils.isBlank(lastnames)){
             throw new NullPointerException(ERROR_INVALID_DATA);
         }
@@ -72,7 +72,7 @@ public class CountdownController {
      * @param birthDate date of birth
      * @throws InvalidBirthDateException when the date of birth is future
      */
-    private void checkBirthDateValidity(LocalDate birthDate) throws InvalidBirthDateException {
+    public void checkBirthDateValidity(LocalDate birthDate) throws InvalidBirthDateException {
         LocalDate today = LocalDate.now();
         if(birthDate.isAfter(today))
             throw new InvalidBirthDateException(ERROR_INVALID_DATA);
@@ -84,7 +84,7 @@ public class CountdownController {
      * @param ex exception to handle
      * @return
      */
-    private ResponseEntity<Object> handleException(Exception ex){
+    public ResponseEntity<Object> handleException(Exception ex){
         /**
          * try {
          *    throw ex;

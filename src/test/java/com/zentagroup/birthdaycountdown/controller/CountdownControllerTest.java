@@ -1,78 +1,44 @@
 package com.zentagroup.birthdaycountdown.controller;
 
+import com.zentagroup.birthdaycountdown.exception.InvalidDateException;
+import com.zentagroup.birthdaycountdown.util.DateUtils;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-//import org.junit.runner.RunWith;
+import org.junit.jupiter.api.TestInstance;
+import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
 
-//@RunWith()
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CountdownControllerTest {
+    @InjectMocks
+    private CountdownController cc = new CountdownController();
 
-    // Testing getBirthdayCountdown
-    @Test
-    void whenValidInput_thenReturns200(){
 
+    @BeforeAll
+    public void initMocks(){
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test
-    void whenInvalidName_thenReturns400(){
-
+    void testCheckRequestValidity() throws Exception {
+        // When null data then throw exception
+        assertThrows(NullPointerException.class, () -> cc.checkRequestValidity(null, "Gonzalez", LocalDate.of(2020, 01, 12)));
+        // When birthdate after current date then throw exception
+        assertThrows(InvalidDateException.class, () -> cc.checkRequestValidity("Ariana", "Gonzalez", LocalDate.of(2021, 01, 12)));
+        // When empty spaces data then throw exception
+        assertThrows(NullPointerException.class, () -> cc.checkRequestValidity(" ", "Gonzalez", LocalDate.of(2020, 01, 12)));
     }
 
     @Test
-    void whenInvalidLastnames_thenReturns400(){
-
-    }
-
-    @Test
-    void whenInvalidDateFormat_thenReturns400(){
-
-    }
-
-    // Testing checkRequestValidity
-    @Test
-    void whenValidParameters_thenNoExceptionsThrown() throws Exception{
-
-    }
-
-    @Test
-    void whenEmptyName_thenThrowsException() throws Exception{
-
-    }
-
-    @Test
-    void whenEmptyLastname_thenThrowsException() throws Exception{
-
-    }
-
-    @Test
-    void whenInvalidDate_thenThrowsException() throws Exception{
-
-    }
-
-    // Testing checkBirthDateValidity
-    @Test
-    void whenBirthdateLaterThanCurrentDate_thenThrowsException() throws Exception{
-
-    }
-
-    @Test
-    void whenBirthdateEarlierThanCurrentDate_thenNoExceptionsThrown() throws Exception{
-
-    }
-
-    //Testing handleException
-    @Test
-    void whenInvalidBirthDateException_thenReturnNotAcceptable(){
-
-    }
-
-    @Test
-    void whenNullPointerException_thenReturnNotAcceptable(){
-
-    }
-
-    @Test
-    void whenOtherException_thenReturnInternalServerError(){
-
+    void testCheckBirthDateValidity() throws Exception {
+        // When birthdate after current date then throw exception
+        assertThrows(InvalidDateException.class, () -> cc.checkBirthDateValidity(LocalDate.of(2023, 01, 12)));
     }
 
 
