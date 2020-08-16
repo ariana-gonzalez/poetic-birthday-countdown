@@ -119,7 +119,7 @@ public class DateUtils {
      * @throws InvalidDateException if earliest date is different to and after latest date
      */
     public long getYearsBetweenDates(LocalDate earliestDate, LocalDate latestDate) throws InvalidDateException{
-        this.earliestDateSameOrBeforeLatestDate(latestDate, earliestDate);
+        //this.earliestDateSameOrBeforeLatestDate(latestDate, earliestDate);
         return ChronoUnit.YEARS.between(earliestDate, latestDate);
     }
 

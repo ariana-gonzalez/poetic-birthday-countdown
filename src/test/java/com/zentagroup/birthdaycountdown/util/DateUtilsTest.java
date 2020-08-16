@@ -96,21 +96,6 @@ public class DateUtilsTest {
     }
 
     @Test
-    @DisplayName("Test getting age text with years, months and days")
-    void testGetAgeTest() throws InvalidDateException{
-        // When year, month and day difference then contains seven words (Ex: 1 año 2 meses y 4 días)
-        assertEquals(7, du.getAgeText(EARLIEST_DATE, LocalDate.of(2022, 03, 2)).split("\\s").length);
-        // When only year and month difference (Ex: 1 año y 2 meses)
-        assertEquals(5, du.getAgeText(EARLIEST_DATE, LocalDate.of(2022, 03, 15)).split("\\s").length);
-        // When only year difference then it contains only two words (Ex: 3 años)
-        assertEquals(2, du.getAgeText(EARLIEST_DATE, LATEST_DATE).split("\\s").length);
-        // When month and day difference (Ex: 2 meses y 2 días)
-        assertEquals(5, du.getAgeText(EARLIEST_DATE, LocalDate.of(2019, 11, 1)).split("\\s").length);
-        // When latest date before arliest date then throw Exception
-        assertThrows(InvalidDateException.class, () -> du.getAgeText(EARLIEST_DATE, LocalDate.of(2019, 03, 1)));
-    }
-
-    @Test
     @DisplayName("Test turning time period into text")
     void testTurnTimePeriodIntoText() throws InvalidDateException{
         // When none equal 0 then return complete text
@@ -128,5 +113,20 @@ public class DateUtilsTest {
         // When day equals 0 then return text without days
         String regexNoDay = "(0?[1-9]{1,2}[0]?|100)\\b ((\\baño\\b)|(\\baños\\b)) \\by\\b (0?[1-9]|10|11) ((\\bmes\\b)|(\\bmeses\\b)) ";
         assertTrue(du.turnTimePeriodIntoText(1, 6, 0).matches(regexNoDay));
+    }
+
+    @Test
+    @DisplayName("Test getting age text with years, months and days")
+    void testGetAgeTest() throws InvalidDateException{
+        // When year, month and day difference then contains seven words (Ex: 1 año 2 meses y 4 días)
+        assertEquals(7, du.getAgeText(EARLIEST_DATE, LocalDate.of(2022, 03, 2)).split("\\s").length);
+        // When only year and month difference (Ex: 1 año y 2 meses)
+        assertEquals(5, du.getAgeText(EARLIEST_DATE, LocalDate.of(2022, 03, 15)).split("\\s").length);
+        // When only year difference then it contains only two words (Ex: 3 años)
+        assertEquals(2, du.getAgeText(EARLIEST_DATE, LATEST_DATE).split("\\s").length);
+        // When month and day difference (Ex: 2 meses y 2 días)
+        assertEquals(5, du.getAgeText(EARLIEST_DATE, LocalDate.of(2019, 11, 1)).split("\\s").length);
+        // When latest date before arliest date then throw Exception
+        assertThrows(InvalidDateException.class, () -> du.getAgeText(EARLIEST_DATE, LocalDate.of(2019, 03, 1)));
     }
 }

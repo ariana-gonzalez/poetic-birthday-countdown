@@ -11,6 +11,16 @@ public class RespCountdownDto <T> {
     private String ageText;
     private T countdownResult;
 
+    public RespCountdownDto() {
+    }
+
+    public RespCountdownDto(String name, int age, String ageText) {
+        this.name = name;
+        this.age = age;
+        this.ageText = ageText;
+        this.countdownResult = null;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
