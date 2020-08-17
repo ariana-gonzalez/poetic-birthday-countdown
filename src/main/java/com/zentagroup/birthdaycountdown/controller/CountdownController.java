@@ -24,7 +24,7 @@ import static com.zentagroup.birthdaycountdown.util.Constant.ERROR_INVALID_DATA;
 @RequestMapping("/api/v1/poetic-birthday")
 public class CountdownController {
     @Autowired
-    private CountdownImp countdownImp;
+    private CountdownImp countdownImp = new CountdownImp();
 
     /**
      * Get method that receives names, lastnames and a date of birth checks the values are
@@ -84,7 +84,7 @@ public class CountdownController {
      * @param ex exception to handle
      * @return
      */
-    public ResponseEntity<Object> handleException(Exception ex){
+    private ResponseEntity<Object> handleException(Exception ex){
         /**
          * try {
          *    throw ex;

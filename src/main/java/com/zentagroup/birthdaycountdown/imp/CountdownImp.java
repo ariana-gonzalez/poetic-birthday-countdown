@@ -1,6 +1,5 @@
 package com.zentagroup.birthdaycountdown.imp;
 
-import com.zentagroup.birthdaycountdown.exception.InvalidBirthDateException;
 import com.zentagroup.birthdaycountdown.dto.RespCountdownDto;
 import com.zentagroup.birthdaycountdown.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,10 @@ import java.time.LocalDate;
 @Service
 public class CountdownImp {
     @Autowired
-    private DateUtils dateU;
+    private DateUtils dateU = new DateUtils();
 
     @Autowired
-    private PoemImp poemImp;
+    private PoemImp poemImp = new PoemImp();
 
     /**
      * Wrapper class for getBirthdayCountdownForDates with the current date as the custom date

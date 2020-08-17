@@ -2,28 +2,17 @@ package com.zentagroup.birthdaycountdown.util;
 
 import static org.junit.jupiter.api.Assertions.*;
 import com.zentagroup.birthdaycountdown.exception.InvalidDateException;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
 import java.time.LocalDate;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DateUtilsTest {
-    public final static LocalDate LOCAL_DATE = LocalDate.of(2020, 8, 15);
     public final static LocalDate EARLIEST_DATE = LocalDate.of(2019, 8, 15);
     public final static LocalDate LATEST_DATE = LocalDate.of(2020, 8, 15);
 
-    @InjectMocks
     private DateUtils du = new DateUtils();
-
-
-    @BeforeAll
-    public void initMocks(){
-        MockitoAnnotations.initMocks(this);
-    }
 
     @Test
     @DisplayName("Test getting months between two dates")
@@ -81,7 +70,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    @DisplayName("Test getting days in a month")
+    @DisplayName("Test getting years between dates")
     void testGetYearsBetweenDates() throws InvalidDateException{
         // When same date then return 0
         assertEquals(0, du.getYearsBetweenDates(EARLIEST_DATE, EARLIEST_DATE));

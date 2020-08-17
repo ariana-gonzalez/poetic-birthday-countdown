@@ -21,14 +21,9 @@ import java.util.List;
  */
 @Service
 public class DateUtils {
-    @Bean
-    public Clock clock(){
-        return Clock.systemDefaultZone();
+
+    public DateUtils() {
     }
-
-    @Autowired
-    private Clock clock;
-
 
     /**
      * Returns the number of days between two months of the same year by adding
@@ -119,7 +114,7 @@ public class DateUtils {
      * @throws InvalidDateException if earliest date is different to and after latest date
      */
     public long getYearsBetweenDates(LocalDate earliestDate, LocalDate latestDate) throws InvalidDateException{
-        //this.earliestDateSameOrBeforeLatestDate(latestDate, earliestDate);
+        this.earliestDateSameOrBeforeLatestDate(latestDate, earliestDate);
         return ChronoUnit.YEARS.between(earliestDate, latestDate);
     }
 
