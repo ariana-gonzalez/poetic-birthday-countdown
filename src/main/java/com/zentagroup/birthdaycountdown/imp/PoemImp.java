@@ -23,7 +23,7 @@ import static com.zentagroup.birthdaycountdown.util.Constant.*;
 public class PoemImp {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplate = new RestTemplate();
 
     @Bean
     public RestTemplate restTemplate() {
